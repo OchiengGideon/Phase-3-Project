@@ -252,4 +252,6 @@ The confusion matrix highlights the model's ability to distinguish between class
 - **Integrate with GIS Tools:** Combine predictions with geographical information for better planning and visualization.
 
 ## tableau-dashboard
+- Click here to access the dashboard: [Tableau dashboard](https://public.tableau.com/views/WaterPointoperationalstatusinTanzania/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+![Dashboard image](Images/Tableau.png)
 
