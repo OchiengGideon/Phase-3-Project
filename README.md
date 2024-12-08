@@ -168,61 +168,21 @@ Tanzania relies heavily on waterpoints to provide clean and accessible water to 
 - The training and testing sets were aligned to ensure consistent feature representation.
 
 ---
+### **Model Insight**
 
-### **6.2 Logistic Regression**
-- A baseline Logistic Regression model was trained using the encoded training data.
-- **Model Evaluation**:
-  - **Accuracy**: 0.77
-  - **Precision**: 0.78
-  - **Recall**: 0.77
-  - **F1-Score**: 0.77
-  - **ROC-AUC**: 0.84
-- **Confusion Matrix**: Showed the distribution of true positives, false positives, true negatives, and false negatives.
-- **Hyperparameter Tuning**:
-  - A grid search was conducted for tuning hyperparameters such as `C`, `solver`, and `penalty`.
-  - **Best Parameters**: `{C: 100, max_iter: 2000, penalty: 'l1', solver: 'saga'}`
-  - The final tuned Logistic Regression model showed improved performance.
+1. The **Logistic Regression model** performed well and was improved through hyperparameter tuning. It exhibited strong predictive performance and interpretability, making it a good choice for scenarios where simplicity and explainability are key.
 
----
+2. The **Decision Tree model** provided comparable results, with slightly better flexibility after tuning but with potential overfitting risks due to its tendency to adapt too closely to the training data. It is particularly useful in cases where model interpretability is important.
 
-### **6.3 Decision Tree Classifier**
-- A vanilla Decision Tree Classifier was trained with default parameters:
-  - **ROC-AUC**: 0.80 (Baseline)
-  - **Confusion Matrix**:
-    - **True Negatives (TN)**: 3243
-    - **False Positives (FP)**: 1183
-    - **False Negatives (FN)**: 835
-    - **True Positives (TP)**: 6257
-- **Hyperparameter Tuning**:
-  - Conducted using `GridSearchCV` with parameters:
-    - `max_depth`: [None, 5, 10, 20]
-    - `min_samples_split`: [0.01, 2, 5, 10]
-    - `min_samples_leaf`: [0.01, 1, 2, 4]
-  - **Best Parameters**: `{criterion: 'gini', max_depth: 20, min_samples_split: 2, min_samples_leaf: 1}`
-- **Final Decision Tree Performance**:
-  - **Cross-validated Accuracy**: 0.79
-  - **ROC-AUC**: 0.82
-  - **Confusion Matrix**:
-    - TN: 3243, FP: 1183, FN: 835, TP: 6257
+3. **Random Forest** emerged as a robust model due to its ability to handle feature importance and interactions effectively. With hyperparameter tuning, it achieved superior performance metrics compared to Logistic Regression and Decision Tree models, especially on accuracy and AUC scores. Random Forest's ensemble approach also ensures more stable predictions, making it particularly effective for larger and more complex datasets.
 
----
+   The results demonstrate that ensemble methods like Random Forest generally outperform single estimators like Logistic Regression and Decision Trees in terms of overall accuracy and stability across different datasets.
 
-### **Overall Performance Metrics (Final Decision Tree)**
-- **Accuracy**: 0.79
-- **Precision**: 0.79 (weighted)
-- **Recall**: 0.79 (weighted)
-- **F1 Score**: 0.79 (weighted)
-- **AUC**: 0.82
+4. **Recommendation**: 
+   - **Logistic Regression** may be preferred for balanced datasets where interpretability and computational efficiency are crucial.
+   - **Decision Trees** are useful for scenarios requiring clear decision boundaries and interpretability, especially when hyperparameter tuning is applied to mitigate overfitting.
+   - **Random Forest** is the recommended choice for more complex datasets where model performance, accuracy, and stability are the primary considerations. Its ensemble nature makes it highly adaptable and effective for a variety of classification tasks.
 
-The confusion matrix highlights the model's ability to distinguish between classes, with relatively strong performance in predicting true positives and true negatives. 
-
----
-
-### **Conclusion**
-1. The **Logistic Regression model** performed well and was improved through hyperparameter tuning. It exhibited strong predictive performance and interpretability.
-2. The **Decision Tree model** provided comparable results, with slightly better flexibility after tuning but with potential overfitting risks due to its nature.
-3. The **ROC curve analysis** shows that both models perform better than a random classifier, with Logistic Regression slightly leading in stability and Decision Tree offering simplicity and interpretability.
-4. **Recommendation**: Logistic Regression may be preferred for balanced datasets, while Decision Trees are useful for scenarios requiring interpretability and when hyperparameter tuning is applied to mitigate overfitting.
 
 ---
 
